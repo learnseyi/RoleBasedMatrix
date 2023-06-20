@@ -1,32 +1,100 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using RoleBasedMatrix.Database;
 using RoleBasedMatrix.Models;
 using System.Diagnostics;
+
 
 namespace RoleBasedMatrix.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IConfiguration _configuration;
+
+
+        /// <summary>
+        /// Initializes the HomeController with the global configuration settings
+        /// and sets the initial values for the diviions select option
+        /// </summary>
+        /// <param name="configuration"></param>
+        public HomeController(IConfiguration configuration)
         {
-            _logger = logger;
+            this._configuration = configuration;
         }
 
         public IActionResult Index()
         {
+
+            RBMDBContext dbContext = new(_configuration);
+            dbContext.ConnectToDataBase();
+            ViewBag.Divisions = new SelectList(dbContext.GetDivisions(), "DivisionId", "DivisionName");
+            dbContext?.con?.Close();
+
             return View();
         }
 
-        public IActionResult Privacy()
+        /// <summary>
+        /// Gets department lists by division and roles by departments
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("home/getResult/{name}/{id:int}")]
+        public JsonResult GetResult(string name, int id)
         {
-            return View();
+            RBMDBContext dbContext = new(_configuration);
+            dbContext.ConnectToDataBase();
+            return name switch
+            {
+                "DivisionName" => Json(dbContext.GetDepartmentList(name, id)),//ViewBag.Roles = new SelectList(dbContext.GetDepartmentList(name, id), "DepartmentId", "DepartmentName", "DepartmentDescription");
+                                                                              //dbContext?.con?.Close();
+                                                                              //break;
+                "DepartmentName" => Json(dbContext.GetRoles(id)),//ViewBag.Roles = new SelectList((IEnumerable<RolesModel>)dbContext.GetRoles(id), "Roleid", "DepartmentId", "RoleName");
+                                                                 //dbContext?.con?.Close();
+                                                                 //break;
+                _ => Json("No result to be displayed"),//ViewBag.message = new SelectList("");
+                                                       //break;
+            };
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        /// <summary>
+        /// Gets applications and permissions search results
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [HttpGet]
+        [Route("home/getAssignments/{id:int?}")]
+        public string GetAssignments(int id)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            RBMDBContext dbContext = new(_configuration);
+            string response = dbContext.GetAssignedAppsAndPermission(id);
+            dbContext?.con?.Close();
+            return response;
         }
+
+        /// <summary>
+        /// Returns application permissions
+        /// </summary>
+        /// <returns></returns>
+
+        [Route("home/editpermissions/{role?}/{app?}")]
+        public IActionResult EditPermissions(string role, string app)
+        {
+            //EditAssignmentModel model = new();
+            RBMDBContext dbContext = new(_configuration);
+            ViewData["Role"] = role;
+            ViewData["app"] = app;
+            //ViewData["Permissions"] = new SelectList(dbContext.GetAppAuthorizations(app), "AuthId", "AuthLabel");
+            ViewData["currentPermissions"] = dbContext.GetCurrentPermissions(app, role);
+            ViewData["Permissions"] = dbContext.GetAppAuthorizations(app);
+            //TempData["Permissions"] = dbContext.GetAppAuthorizations(app);
+            return View("Modal");
+        }
+
+
+
     }
 }

@@ -1,8 +1,69 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Business Systems";
 }
+@model SearchTabOptionsModel;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!--Container Main start-->
+<section>
+    <div>
+        @if ((bool)(ViewData["message"] ?? true))
+        {
+            <div class="notice">
+                Database connection successful
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger fade show" role="alert">
+                There was an error connecting to database
+            </div>
+        }
+    </div>
+    <div id="tabsContent" class="search-content mt-2  border border-primary  rounded bg-light">
+
+        <!--Search slide start-->
+
+        <div id="search" class="container-fluid  tab-pane fade active show w-100">
+            <form class="container-fluid border form-inline needs-validation mt-3">
+                <div class="row  align-items-center mx-auto m-3">
+                    <div class="col ms-5 text-center fs-6">
+                        @Html.DropDownListFor(model => model.DivisionName, ViewBag.Divisions as SelectList," - Select Division - ",new {@class = "form-select-md  w-100 border text-center"})
+                    </div>
+                    <div class="col text-center">
+                        @Html.DropDownListFor(model => model.DepartmentName, Enumerable.Empty<SelectListItem>(),"- Select Department - ",new {@class = "form-select-md text-center w-100 border",@disabled="disabled"})
+                    </div>
+                    <div class="col text-center">
+                        @Html.DropDownListFor(model => model.RoleName, Enumerable.Empty<SelectListItem>(),"- Select Role - ",new {@class = "form-select-md text-center w-100 border",@disabled = "disabled"})
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary btn-sm search-btn text-lowercase">search</button>
+                    </div>
+                </div>
+            </form>
+            <div id="result-display" class="container-fluid bg-secondary my-3 shadow-sm rounded-3 height-50">
+                <div class="text-center result-header text-dark py-3">
+                    <div class="spinner-container invisible">
+                        <div class="lds-spinner ">
+                            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div>
+                            </div>
+                        </div>
+                    </div>
+                    <span></span>
+                    <button class="btn btn-sm btn-primary text-lowercase py-0 ms-4 edit-btn invisible">Edit</button>
+                    <div class=" search-result m-auto mt-4 container-fluid">
+
+                        <div class="table-container w-50 text-center"></div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+<!--Container Main end-->

@@ -1,4 +1,12 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿"use Strict"
 
-// Write your JavaScript code.
+
+
+
+import { Logic as ajaxLogic } from "./Logic.js";
+import { siteEvents } from "./UI.js";
+
+// Initialize DOM effects and manipulation
+siteEvents();
+ajaxLogic();
+

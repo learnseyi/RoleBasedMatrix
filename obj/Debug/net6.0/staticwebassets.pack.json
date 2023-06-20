@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets\\RoleBasedMatrix.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\css\\materia.css",
+      "PackagePath": "staticwebassets\\css\\materia.css"
+    },
+    {
       "Id": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\js\\Logic.js",
+      "PackagePath": "staticwebassets\\js\\Logic.js"
+    },
+    {
+      "Id": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\js\\UI.js",
+      "PackagePath": "staticwebassets\\js\\UI.js"
     },
     {
       "Id": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\js\\site.js",

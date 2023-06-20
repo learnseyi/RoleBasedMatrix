@@ -1,0 +1,58 @@
+﻿@model EditAssignmentModel;
+@{
+    Layout = null;
+}
+
+<div class="modal-dialog modal-dialog-centered" action="dialog">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content rounded-3">
+            <div class="modal-body text-center">
+                <span class="small">Editing @ViewData["app"] permissions for @ViewData["Role"]</span>
+
+                    <label class=" text-success my-3" id="0">Current Permissions
+                    <i class="bi bi-person-plus-fill add-permission fs-3 ms-3 mt-2 text-dark" 
+                        data-toggle="popover" 
+                        data-bs-trigger="hover focus"  
+                        data-placement="top" 
+                        data-content="Add Permission"></i>
+                    </label>
+               
+                
+
+                <div class="row bg-gradient permissions-row">
+                    @{
+                        @foreach (string currentPermission in ViewData["currentPermissions"] as IEnumerable<string>)
+                        {
+                            <div class="col d-flex">
+                                <select class="form-select form-select-sm  permissions-set">
+                                    @{
+
+                                        @foreach (EditAssignmentModel perm in ViewData["Permissions"] as IEnumerable<EditAssignmentModel>)
+                                        {
+                                            if (currentPermission == perm.AuthLabel)
+                                            {
+                                                
+                                                <option selected="selected">@perm.AuthLabel</option>
+                                            }
+                                            else
+                                            {
+                                                <option>@perm.AuthLabel</option>
+                                            }
+
+                                        }
+                                    }
+
+                                </select>
+                                <span class="text-danger ms-1"><i class="bi bi-x-circle delete-btn"></i></span>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9PWbQzKl9406VKXLkDMB6z6B4xJ33RBtAWJqFcf9Jzs=",
+  "Hash": "BNQppcHRUAlvZyhQ7oabL3VelXTiouHZ1BJhSXIhI6k=",
   "Source": "RoleBasedMatrix",
   "BasePath": "_content/RoleBasedMatrix",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RoleBasedMatrix.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\css\\materia.css",
+      "SourceId": "RoleBasedMatrix",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\",
+      "BasePath": "_content/RoleBasedMatrix",
+      "RelativePath": "css/materia.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\materia.css"
+    },
+    {
       "Identity": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\css\\site.css",
       "SourceId": "RoleBasedMatrix",
       "SourceType": "Discovered",
@@ -85,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\js\\Logic.js",
+      "SourceId": "RoleBasedMatrix",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\",
+      "BasePath": "_content/RoleBasedMatrix",
+      "RelativePath": "js/Logic.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Logic.js"
+    },
+    {
       "Identity": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\js\\site.js",
       "SourceId": "RoleBasedMatrix",
       "SourceType": "Discovered",
@@ -100,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\js\\UI.js",
+      "SourceId": "RoleBasedMatrix",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\",
+      "BasePath": "_content/RoleBasedMatrix",
+      "RelativePath": "js/UI.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\UI.js"
     },
     {
       "Identity": "C:\\Users\\Slim\\Desktop\\Projects\\.net\\projects\\RoleBasedMatrix\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
