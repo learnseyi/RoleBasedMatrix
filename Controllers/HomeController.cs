@@ -25,10 +25,10 @@ namespace RoleBasedMatrix.Controllers
 
         public IActionResult Index()
         {
-
-            RBMDBContext dbContext = new(_configuration);
+            
             try
             {
+                RBMDBContext dbContext = new(_configuration);
                 if (dbContext.ConnectToDataBase())
                 {
                     ViewBag.ConStatus = "Connection Successful";

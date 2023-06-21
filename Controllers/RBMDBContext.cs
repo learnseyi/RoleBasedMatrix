@@ -106,9 +106,9 @@ namespace RoleBasedMatrix.Database
 
                 }
 
-                ConnectToDataBase();
+                //ConnectToDataBase();
                 SqlCommand cmd = new(query, con);
-                DataSet _dataSet = new();
+                //DataSet _dataSet = new();
                 SqlDataAdapter adapter = new(cmd);
                 DataTable response = new();
                 adapter.Fill(response);

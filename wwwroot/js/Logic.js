@@ -169,15 +169,26 @@ export const Logic = () => {
 
 
         /**
+         * Gets and sets the current permissions
+         * @param {any} elem
+         */
+        const updatePermissions = (elem) => {
+            const currentPermissions = [];
+            const getCurrentPermissions = Array.from(elem.getElementsByTagName("select"))
+            getCurrentPermissions.forEach(permissions=> console.log(permissions.options[permissions.selectedIndex].text))
+        }
+
+        /**
          *  Deletes permissions from the permissions edit modal
          */
         const deleteColumns = (elem) => {
             const deleteBtns = Array.from(elem.getElementsByClassName("delete-btn"));
             const permissions = elem.getElementsByClassName("permissions-row")
-            console.log(deleteBtns);
+ 
             if (deleteBtns.length === 0) return;
             deleteBtns.forEach(btn => {
                 btn.addEventListener("click", (event) => {
+                    updatePermissions(elem);
                     const currentPermission = event.target.parentNode.parentNode
                     Swal.fire({
                         icon: 'question',
