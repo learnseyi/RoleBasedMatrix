@@ -26,20 +26,20 @@ namespace RoleBasedMatrix.Database
         /// <summary>
         /// Initializes a database connection
         /// </summary>
-        public void ConnectToDataBase()
+        public bool ConnectToDataBase()
         {
             try
             {
                 string connectionString = _configuration.GetConnectionString("RBMDB");
                 con = new(connectionString);
                 con.Open();
-                ViewBag.Message = "Connection Successful";
+                return true;
 
 
             }
-            catch (Exception ex)
+            catch 
             {
-                ViewBag.Message = ex.Message;
+                throw;
 
             }
 

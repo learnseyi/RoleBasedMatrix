@@ -2,16 +2,22 @@
 @{
     ViewData["Title"] = "Error";
 }
+<div>
+    <h1 class="text-danger">Error.</h1>
+    <h2 class="text-danger">An error occurred while processing your request.</h2>
+</div>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
 
-@if (Model.ShowRequestId)
+@*@if (Model.ShowRequestId)
 {
     <p>
         <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        @ViewBag.ConStatus
     </p>
-}
+}*@
+<p>
+    @ViewBag.ConStatus
+</p>
 
 <h3>Development Mode</h3>
 <p>

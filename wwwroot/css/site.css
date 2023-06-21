@@ -374,15 +374,16 @@ footer {
   height:100vh;
 }
 
- .notice{
-    background-color:aquamarine!important;
-    top: 85px; 
-    text-align:center;
-    left:35%;
-    position:absolute;
-    width: 30%!important;
-
+.notice {
+    background-color: aquamarine !important;
+    top: 85px;
+    text-align: center;
+    left: 35%;
+    position: absolute;
+    width: 30% !important;
+    animation: fadeOut 5s linear forwards;
 }
+
 /*******table design******/
 .table-container {
     width: 75%;

@@ -27,11 +27,23 @@ namespace RoleBasedMatrix.Controllers
         {
 
             RBMDBContext dbContext = new(_configuration);
-            dbContext.ConnectToDataBase();
-            ViewBag.Divisions = new SelectList(dbContext.GetDivisions(), "DivisionId", "DivisionName");
-            dbContext?.con?.Close();
-
-            return View();
+            try
+            {
+                if (dbContext.ConnectToDataBase())
+                {
+                    ViewBag.ConStatus = "Connection Successful";
+                    ViewBag.Divisions = new SelectList(dbContext.GetDivisions(), "DivisionId", "DivisionName");
+                    dbContext?.con?.Close();
+                };
+                return View();
+            }
+            catch(Exception ex) 
+            {
+                ViewBag.ConStatus = ex.Message;
+                return View("Error");
+            }
+           
+          
         }
 
         /// <summary>

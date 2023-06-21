@@ -6,10 +6,13 @@
 <!--Container Main start-->
 <section>
     <div>
-        @if ((bool)(ViewData["message"] ?? true))
+        <div class="notice">
+            @ViewBag.ConStatus
+        </div>
+        @*@if ((bool)(ViewData["message"] ?? true))
         {
             <div class="notice">
-                Database connection successful
+                @ViewBag.ConStatus
             </div>
         }
         else
@@ -17,7 +20,7 @@
             <div class="alert alert-danger fade show" role="alert">
                 There was an error connecting to database
             </div>
-        }
+        }*@
     </div>
     <div id="tabsContent" class="search-content mt-2  border border-primary  rounded bg-light">
 
